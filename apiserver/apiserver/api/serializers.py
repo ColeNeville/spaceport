@@ -940,7 +940,7 @@ class CourseDetailSerializer(serializers.ModelSerializer):
                 dt = dt + datetime.timedelta(weeks=offset_weeks)
 
             cost = prev_session.cost
-            max_students = prev_session.max_students
+            max_students = prev_session.max_students if prev_session.max_students > 1 else 6
         else:
             return None
 
